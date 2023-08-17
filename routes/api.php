@@ -21,6 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1') -> group(function ()
 {
-    Route::get('/traducir', [ TraduccionController::class, "Traducir" ]);
     Route::get('/traduccion', [ TraduccionController::class, "ObtenerTraducciones" ]);
 });

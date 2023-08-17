@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Traduccion;
 
 class TraduccionController extends Controller
 {
@@ -15,5 +16,12 @@ class TraduccionController extends Controller
 
         if($validacion -> fails())
             return $validacion -> errors();
+
+        $traduccion = Traduccion::where([
+            ['id', $request -> get('id')],
+            ['idioma', $request -> get('idioma')]
+        ]) -> first();
+
+        return $traduccion -> texto;
     }
 }

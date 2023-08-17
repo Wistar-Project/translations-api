@@ -24,4 +24,8 @@ class TraduccionController extends Controller
 
         return $traduccion -> texto;
     }
+
+    public function ObtenerTraducciones(){
+        return Traduccion::all();
+    }
 }
